@@ -2,6 +2,8 @@
 
 This demonstates an issue I am having with implicit exports and imports.  Basically a refernce to a resource from another stack in a property override does not seem to trigger the import.
 
+2019-03-14T1732-0600: Added branch workaround1 which shows a potential work-around.  Feedback welcome.
+
 # sns-topic-stack
 
 Contains a single sns.Topic resource that it implicitly exports via `public readonly snsTopic`
