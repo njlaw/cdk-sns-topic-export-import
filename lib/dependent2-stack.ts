@@ -33,7 +33,7 @@ export class Dependent2Stack extends cdk.Stack {
                 TriggerEvents: [
                     'DeploymentStart',
                 ],
-                TriggerTargetArn: props.snsTopicStack.snsTopic.topicArn,
+                TriggerTargetArn: props.snsTopicStack.snsTopicArn.makeImportValue(),
             }
         ]);
     }

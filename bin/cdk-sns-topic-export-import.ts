@@ -7,7 +7,12 @@ import { Dependent3Stack } from '../lib/dependent3-stack';
 
 const app = new cdk.App();
 const snsTopicStack = new SnsTopicStack(app, 'SnsTopicStack');
-new Dependent1Stack(app, 'Dependent1Stack', { snsTopicStack: snsTopicStack });
-new Dependent2Stack(app, 'Dependent2Stack', { snsTopicStack: snsTopicStack });
-new Dependent3Stack(app, 'Dependent3Stack', { snsTopicStack: snsTopicStack });
+const dependent1Stack = new Dependent1Stack(app, 'Dependent1Stack', { snsTopicStack: snsTopicStack });
+const dependent2Stack = new Dependent2Stack(app, 'Dependent2Stack', { snsTopicStack: snsTopicStack });
+const dependent3Stack = new Dependent3Stack(app, 'Dependent3Stack', { snsTopicStack: snsTopicStack });
+
+dependent1Stack.addDependency(snsTopicStack);
+dependent2Stack.addDependency(snsTopicStack);
+dependent3Stack.addDependency(snsTopicStack);
+
 app.run();
